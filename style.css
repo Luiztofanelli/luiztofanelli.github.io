@@ -1,0 +1,202 @@
+:root {
+    --primary: #f39c12; /* Laranja Industrial */
+    --secondary: #2c3e50;
+    --dark: #0f171e;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text: #e0e0e0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body {
+    background-color: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Background Animado Sutil */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1a2a3a 0%, #0f171e 100%);
+    z-index: -1;
+}
+
+/* Header Moderna */
+header {
+    background: rgba(15, 23, 30, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1.2rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(243, 156, 18, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 2px;
+}
+
+nav ul { display: flex; gap: 2rem; list-style: none; }
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+nav a:hover { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80') center/cover;
+    background-blend-mode: overlay;
+    background-color: rgba(15, 23, 30, 0.85);
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero h1 span { color: var(--primary); text-shadow: 0 0 20px rgba(243, 156, 18, 0.5); }
+
+.hero p {
+    font-size: 1.2rem;
+    color: #bdc3c7;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+/* Glass Cards (Sobre, Experiência, Skill) */
+section { padding: 100px 2rem; max-width: 1200px; margin: 0 auto; }
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transition: 0.4s;
+}
+
+.card:hover { border-color: var(--primary); transform: translateY(-5px); }
+
+/* Grid de Habilidades */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.skill-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.skill-item:hover {
+    background: var(--primary);
+    color: var(--dark);
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.4);
+}
+
+/* Timeline Interativa */
+.timeline-item {
+    border-left: 2px solid var(--primary);
+    padding-left: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -9px; top: 0;
+    width: 16px; height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+/* Painel de Habilidades (Popup) */
+.skill-panel {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: #1c262f;
+    border: 2px solid var(--primary);
+    padding: 3rem;
+    border-radius: 20px;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.skill-panel.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Botões Estilizados */
+.btn {
+    padding: 1rem 2.5rem;
+    background: var(--primary);
+    color: var(--dark);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn:hover { box-shadow: 0 0 30px var(--primary); transform: scale(1.05); }
+
+/* Contato Cards */
+.contato-grid { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+.contato-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    width: 300px;
+    text-align: center;
+}
+.contato-card i { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
+.qr-code { width: 100%; border-radius: 10px; margin: 15px 0; filter: invert(1) brightness(1.5); }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    nav ul { display: none; } /* Menu hamburguer seria necessário aqui */
+}
